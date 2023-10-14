@@ -1,4 +1,4 @@
-package net.cerverny.DataParsing;
+package net.cerveny.DataParsing;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

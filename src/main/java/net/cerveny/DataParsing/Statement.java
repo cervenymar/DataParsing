@@ -1,4 +1,4 @@
-package net.cerverny.DataParsing;
+package net.cerveny.DataParsing;
 
 public class Statement {  
         String qualifier;

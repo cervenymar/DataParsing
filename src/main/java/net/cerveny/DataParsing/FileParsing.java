@@ -1,4 +1,4 @@
-package net.cerverny.DataParsing;
+package net.cerveny.DataParsing;
 
 import java.io.File; // Import the File class
 import java.io.FileNotFoundException; // Import this class to handle errors

@@ -1,4 +1,4 @@
-package net.cerverny.DataParsing;
+package net.cerveny.DataParsing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
