@@ -9,13 +9,32 @@ public class FileParsing {
       Scanner myReader = new Scanner(inputFile);
       while (myReader.hasNextLine()) {
         String data = myReader.nextLine();
-        System.out.println(data);
+        switch(data.substring(0,3)){
+          case "074":           
+            System.out.println(data); 
+            Statement vypis = new Statement(data);            
+            System.out.println(vypis+"{{"+vypis.qualifier+";"
+            +vypis.accountNumber+";"
+            +vypis.accountName+";"
+            +vypis.oldBalanceDate+";"
+            +vypis.oldBalanceValue+";"
+            +vypis.oldBalanceChar+"}}");
+          break;
+          case "075":
+            Payment platba = new Payment(data);
+            System.out.println(data);
+            System.out.println(platba+"{{"+platba.qualifier+";"+platba.accountNumber+"}}");
+          break;
+        }
       }
       myReader.close();
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
+    
   }
   
 }
+
+
