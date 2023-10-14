@@ -1,3 +1,5 @@
+package net.cerverny.DataParsing;
+
 public class Payment {
     String qualifier;
         String assignedAccountNumber;

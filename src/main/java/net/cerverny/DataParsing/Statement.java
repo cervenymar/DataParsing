@@ -1,3 +1,5 @@
+package net.cerverny.DataParsing;
+
 public class Statement {  
         String qualifier;
         String accountNumber;
