@@ -3,6 +3,9 @@ package net.cerveny.DataParsing;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.bson.Document;
+import org.bson.types.ObjectId;
+
 public class Movement {
     byte qualifier;
     long assignedAccountNumber;
@@ -38,6 +41,23 @@ public class Movement {
                 this.qualifier, this.assignedAccountNumber, this.accountNumber, this.documentNumber, this.ammount,
                 this.billingCode, this.variableSymbol, this.constantSymbol, this.specificSymbol, this.clientName,
                 this.currencyCode, this.dueDate);
+    }
+
+    public Document toDoc() {
+        Document doc = new Document("_id", new ObjectId())
+                .append("qualifier", this.qualifier)
+                .append("assignedAccountNumber", this.assignedAccountNumber)
+                .append("accountNumber", this.accountNumber)
+                .append("documentNumber", this.documentNumber)
+                .append("ammount", this.ammount)
+                .append("billingCode", this.billingCode)
+                .append("variableSymbol", this.variableSymbol)
+                .append("constantSymbol", this.constantSymbol)
+                .append("specificSymbol", this.specificSymbol)
+                .append("clientName", this.clientName)
+                .append("currencyCode", this.currencyCode)
+                .append("dueDate", this.dueDate);
+        return doc;
     }
 
     public Date StringToDate(String input) throws Exception {
