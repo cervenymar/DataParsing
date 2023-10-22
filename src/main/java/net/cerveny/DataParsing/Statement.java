@@ -44,5 +44,95 @@ public class Statement {
             SimpleDateFormat formatter=new SimpleDateFormat("ddMMyy");
             return formatter.parse(input);
         }
+        public byte getQualifier() {
+            return qualifier;
+        }
+        public void setQualifier(byte qualifier) {
+            this.qualifier = qualifier;
+        }
+        public long getAccountNumber() {
+            return accountNumber;
+        }
+        public void setAccountNumber(long accountNumber) {
+            this.accountNumber = accountNumber;
+        }
+        public String getAccountName() {
+            return accountName;
+        }
+        public void setAccountName(String accountName) {
+            this.accountName = accountName;
+        }
+        public Date getOldBalanceDate() {
+            return oldBalanceDate;
+        }
+        public void setOldBalanceDate(Date oldBalanceDate) {
+            this.oldBalanceDate = oldBalanceDate;
+        }
+        public double getOldBalanceValue() {
+            return oldBalanceValue;
+        }
+        public void setOldBalanceValue(double oldBalanceValue) {
+            this.oldBalanceValue = oldBalanceValue;
+        }
+        public char getOldBalanceChar() {
+            return oldBalanceChar;
+        }
+        public void setOldBalanceChar(char oldBalanceChar) {
+            this.oldBalanceChar = oldBalanceChar;
+        }
+        public double getNewBalanceValue() {
+            return newBalanceValue;
+        }
+        public void setNewBalanceValue(double newBalanceValue) {
+            this.newBalanceValue = newBalanceValue;
+        }
+        public char getNewBalanceChar() {
+            return newBalanceChar;
+        }
+        public void setNewBalanceChar(char newBalanceChar) {
+            this.newBalanceChar = newBalanceChar;
+        }
+        public double getDebitTurnOver() {
+            return debitTurnOver;
+        }
+        public void setDebitTurnOver(double debitTurnOver) {
+            this.debitTurnOver = debitTurnOver;
+        }
+        public char getDebitTurnOverChar() {
+            return debitTurnOverChar;
+        }
+        public void setDebitTurnOverChar(char debitTurnOverChar) {
+            this.debitTurnOverChar = debitTurnOverChar;
+        }
+        public double getCreditTurnOver() {
+            return creditTurnOver;
+        }
+        public void setCreditTurnOver(double creditTurnOver) {
+            this.creditTurnOver = creditTurnOver;
+        }
+        public char getCreditTurnOverChar() {
+            return creditTurnOverChar;
+        }
+        public void setCreditTurnOverChar(char creditTurnOverChar) {
+            this.creditTurnOverChar = creditTurnOverChar;
+        }
+        public short getStatementSerialNumber() {
+            return statementSerialNumber;
+        }
+        public void setStatementSerialNumber(short statementSerialNumber) {
+            this.statementSerialNumber = statementSerialNumber;
+        }
+        public Date getBillingDate() {
+            return billingDate;
+        }
+        public void setBillingDate(Date billingDate) {
+            this.billingDate = billingDate;
+        }
+        public String getEmptySpace() {
+            return emptySpace;
+        }
+        public void setEmptySpace(String emptySpace) {
+            this.emptySpace = emptySpace;
+        }
     }
 
