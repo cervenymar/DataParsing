@@ -1,42 +1,37 @@
 package net.cerveny.DataParsing;
 
 import java.io.File; // Import the File class
-import java.io.FileNotFoundException; // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class FileParsing {
-  public void ReadInputFile() {
-    try {
-      File inputFile = new File("./../../../test.gpc");
+  public void ReadInputFile() throws Exception {
+    File inputFile = new File("./../../../test.gpc");
+    if (!inputFile.exists() || (inputFile.length() == 0)) {
+      System.out.println("The input file is empty or missing.");
+    } else {
       Scanner myReader = new Scanner(inputFile);
       while (myReader.hasNextLine()) {
         String data = myReader.nextLine();
-        switch(data.substring(0,3)){
-          case "074":           
-            System.out.println(data); 
-            Statement vypis = new Statement(data);            
-            System.out.println(vypis+"{{"+vypis.qualifier+";"
-            +vypis.accountNumber+";"
-            +vypis.accountName+";"
-            +vypis.oldBalanceDate+";"
-            +vypis.oldBalanceValue+";"
-            +vypis.oldBalanceChar+"}}");
-          break;
+        switch (data.substring(0, 3)) {
+          case "074":
+            Statement vypis = new Statement(data);
+            System.out.println("input: \n" + data);
+            System.out.println("output: \n" + vypis);
+            System.out.println("################################");
+            break;
           case "075":
-            Payment platba = new Payment(data);
-            System.out.println(data);
-            System.out.println(platba+"{{"+platba.qualifier+";"+platba.accountNumber+"}}");
-          break;
+            Movement platba = new Movement(data);
+            System.out.println("input: \n" + data);
+            System.out.println("output: \n" + platba);
+            System.out.println("################################");
+            break;
+          default:
+            System.out.println("Unknown line case.");
+            break;
         }
       }
       myReader.close();
-    } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
-      e.printStackTrace();
     }
-    
+
   }
-  
 }
-
-
