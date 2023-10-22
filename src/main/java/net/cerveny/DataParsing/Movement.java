@@ -6,13 +6,13 @@ import java.util.Date;
 public class Movement {
     byte qualifier;
     long assignedAccountNumber;
-    double accountNumber;
-    double documentNumber;
+    long accountNumber;
+    long documentNumber;
     double ammount;
     byte billingCode;
-    double variableSymbol;
-    double constantSymbol;
-    double specificSymbol;
+    long variableSymbol;
+    long constantSymbol;
+    long specificSymbol;
     String clientName;
     short currencyCode;
     Date dueDate;
@@ -20,14 +20,14 @@ public class Movement {
     public Movement(String data) throws Exception {
         this.qualifier = Byte.parseByte(data.substring(0, 3));
         this.assignedAccountNumber = Long.parseLong(data.substring(3, 19));
-        this.accountNumber = Double.parseDouble(data.substring(19, 35));
-        this.documentNumber = Double.parseDouble(data.substring(35, 48));
+        this.accountNumber = Long.parseLong(data.substring(19, 35));
+        this.documentNumber = Long.parseLong(data.substring(35, 48));
         this.ammount = Double.parseDouble(data.substring(48, 60));
         this.billingCode = Byte.parseByte(data.substring(60, 61));
-        this.variableSymbol = Double.parseDouble(data.substring(61, 71));
-        this.constantSymbol = Double.parseDouble(data.substring(71, 81));
-        this.specificSymbol = Double.parseDouble(data.substring(81, 91));
-        this.clientName = data.substring(97, 117);
+        this.variableSymbol = Long.parseLong(data.substring(61, 71));
+        this.constantSymbol = Long.parseLong(data.substring(71, 81));
+        this.specificSymbol = Long.parseLong(data.substring(81, 91));
+        this.clientName = data.substring(97, 117).trim();
         this.currencyCode = Short.parseShort(data.substring(118, 122));
         this.dueDate = StringToDate(data.substring(122, 128));
     }
@@ -65,7 +65,7 @@ public class Movement {
         return accountNumber;
     }
 
-    public void setAccountNumber(double accountNumber) {
+    public void setAccountNumber(long accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -73,7 +73,7 @@ public class Movement {
         return documentNumber;
     }
 
-    public void setDocumentNumber(double documentNumber) {
+    public void setDocumentNumber(long documentNumber) {
         this.documentNumber = documentNumber;
     }
 
@@ -97,7 +97,7 @@ public class Movement {
         return variableSymbol;
     }
 
-    public void setVariableSymbol(double variableSymbol) {
+    public void setVariableSymbol(long variableSymbol) {
         this.variableSymbol = variableSymbol;
     }
 
@@ -105,7 +105,7 @@ public class Movement {
         return constantSymbol;
     }
 
-    public void setConstantSymbol(double constantSymbol) {
+    public void setConstantSymbol(long constantSymbol) {
         this.constantSymbol = constantSymbol;
     }
 
@@ -113,7 +113,7 @@ public class Movement {
         return specificSymbol;
     }
 
-    public void setSpecificSymbol(double specificSymbol) {
+    public void setSpecificSymbol(long specificSymbol) {
         this.specificSymbol = specificSymbol;
     }
 
