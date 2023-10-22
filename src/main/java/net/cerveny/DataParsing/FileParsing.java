@@ -11,7 +11,7 @@ public class FileParsing {
   public void ReadInputFile(String path) throws Exception {
     File inputFile = new File(path);
     if (!inputFile.exists() || (inputFile.length() == 0)) {
-      System.out.println("The input file is empty or missing.");
+      System.out.println("ERROR: The input file is empty or missing.");
     } else {
       List<Document> statementList = new ArrayList<Document>();
       List<Document> movementList = new ArrayList<Document>();
@@ -35,12 +35,12 @@ public class FileParsing {
             movementList.add(platba.toDoc());
             break;
           default:
-            System.out.println("Unknown line case.");
+            System.out.println("ERROR: Unknown line case.");
             break;
         }
       }
-      MongoClientConnection.ConnectStatements(statementList);
-      MongoClientConnection.ConnectMovements(movementList);
+      MongoClientConnection.ConnectAndInsertStatements(statementList);
+      MongoClientConnection.ConnectAndInsertMovements(movementList);
       myReader.close();
     }
 
