@@ -8,12 +8,12 @@ import org.springframework.boot.CommandLineRunner;
 public class DataParsingApplication implements CommandLineRunner
 {
 
-	public static void main(String[] args)throws Exception{
+	public static void main(String[] args)throws Exception{		
 		SpringApplication.run(DataParsingApplication.class, args);
 	}
 	public void run(String... args)throws Exception{
 		FileParsing fileParsing = new FileParsing();
-    	fileParsing.ReadInputFile();
+    	fileParsing.ReadInputFile("./../../../test.gpc");
 		
 	}
 
