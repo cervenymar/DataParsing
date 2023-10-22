@@ -1,4 +1,5 @@
 package net.cerveny.DataParsing;
+
 import java.text.SimpleDateFormat; 
 import java.util.Date;
 
@@ -37,7 +38,6 @@ public class Statement {
             this.emptySpace = data.substring(114,128).trim();            
         }
         public String toString() {
-            //System.out.println(vypis+"{{"+vypis.qualifier+";"+vypis.accountNumber+";"+vypis.accountName+";"+vypis.oldBalanceDate+";"+vypis.oldBalanceValue+";"+vypis.oldBalanceChar+"}}");
             return String.format("{\"qualifier\":\"%s\",\"accountNumber\":\"%s\",\"accountName\":\"%s\",\"oldBalanceDate\":\"%s\",\"oldBalanceValue\":\"%s\",\"oldBalanceChar\":\"%s\",\"newBalanceValue\":\"%s\",\"newBalanceChar\":\"%s\",\"debitTurnOver\":\"%s\",\"debitTurnOverChar\":\"%s\",\"creditTurnOver\":\"%s\",\"creditTurnOverChar\":\"%s\",\"statementSerialNumber\":\"%s\",\"billingDate\":\"%s\",\"emptySpace \":\"%s\"}",this.qualifier,this.accountNumber,this.accountName,this.oldBalanceDate,this.oldBalanceValue,this.oldBalanceChar,this.newBalanceValue,this.newBalanceChar,this.debitTurnOver,this.debitTurnOverChar,this.creditTurnOver,this.creditTurnOverChar,this.statementSerialNumber,this.billingDate,this.emptySpace );
         }   
         public Date StringToDate(String input)throws Exception{
