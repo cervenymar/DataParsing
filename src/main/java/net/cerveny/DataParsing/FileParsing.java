@@ -22,16 +22,16 @@ public class FileParsing {
         switch (data.substring(0, 3)) {
           case "074":
             Statement vypis = new Statement(data);
-            //System.out.println("input: \n" + data);
-            //System.out.println("output: \n" + vypis);           
+            System.out.println("input: \n" + data);
+            System.out.println("output: \n" + vypis);           
             statementList.add(vypis.toDoc());
             
 
             break;
           case "075":
             Movement platba = new Movement(data);
-            //System.out.println("input: \n" + data);
-            //System.out.println("output: \n" + platba);            
+            System.out.println("input: \n" + data);
+            System.out.println("output: \n" + platba);            
             movementList.add(platba.toDoc());
             break;
           default:
@@ -39,9 +39,8 @@ public class FileParsing {
             break;
         }
       }
-      MongoClientConnection.ConnectAndInsertStatements(statementList);
-      MongoClientConnection.ConnectAndInsertMovements(movementList);
-      myReader.close();
+      MongoClientConnection spojeni = new MongoClientConnection();
+      spojeni.AddToDB(movementList, statementList);      
     }
 
   }

@@ -10,25 +10,26 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 public class MongoClientConnection {
-    static String mongoUri = "mongodb://localhost:27017/";
+    String mongoUri;
+    ConnectionString connectionString;
+    MongoClient mongoClient;
+    MongoDatabase database;
+    MongoCollection<Document> movements;
+    MongoCollection<Document> statements;
 
-    public static void ConnectAndInsertStatements(List<Document> input) throws Exception {
-        ConnectionString connectionString = new ConnectionString(mongoUri);
-        MongoClient mongoClient = MongoClients.create(connectionString);
-        MongoDatabase database = mongoClient.getDatabase("test01");
-        database.createCollection("statements");
-        MongoCollection<Document> statements = database.getCollection("statements");
-        statements.insertMany(input);
-        mongoClient.close();
+    public MongoClientConnection() {
+        this.mongoUri = "mongodb://localhost:27017/";
+        this.connectionString = new ConnectionString(this.mongoUri);
+        this.mongoClient = MongoClients.create(this.connectionString);
+        this.database = mongoClient.getDatabase("test01");
+        this.movements = database.getCollection("movements");
+        this.statements = database.getCollection("statements");
     }
 
-    public static void ConnectAndInsertMovements(List<Document> input) throws Exception {
-        ConnectionString connectionString = new ConnectionString(mongoUri);
-        MongoClient mongoClient = MongoClients.create(connectionString);
-        MongoDatabase database = mongoClient.getDatabase("test01");
-        database.createCollection("movements");
-        MongoCollection<Document> movements = database.getCollection("movements");
-        movements.insertMany(input);
-        mongoClient.close();
+    public void AddToDB(List<Document> movementInput, List<Document> statementInput) throws Exception {        
+        this.movements.insertMany(movementInput);
+        this.statements.insertMany(statementInput);
+        this.mongoClient.close();
     }
+
 }
