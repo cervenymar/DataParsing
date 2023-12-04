@@ -22,16 +22,12 @@ public class FileParsing {
         switch (data.substring(0, 3)) {
           case "074":
             Statement statement = new Statement(data);
-            System.out.println("input: \n" + data);
-            System.out.println("output: \n" + statement);           
-            statementList.add(statement.toDoc());
-            
-
+            System.out.println("input: \n" + data + "\noutput: \n" + statement);         
+            statementList.add(statement.toDoc());  
             break;
           case "075":
             Movement movement = new Movement(data);
-            System.out.println("input: \n" + data);
-            System.out.println("output: \n" + movement);            
+            System.out.println("input: \n" + data + "\noutput: \n" + movement);
             movementList.add(movement.toDoc());
             break;
           default:
