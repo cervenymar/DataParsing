@@ -21,28 +21,29 @@ public class FileParsing {
         String data = myReader.nextLine();
         switch (data.substring(0, 3)) {
           case "074":
-            Statement vypis = new Statement(data);
+            Statement statement = new Statement(data);
             System.out.println("input: \n" + data);
-            System.out.println("output: \n" + vypis);           
-            statementList.add(vypis.toDoc());
+            System.out.println("output: \n" + statement);           
+            statementList.add(statement.toDoc());
             
 
             break;
           case "075":
-            Movement platba = new Movement(data);
+            Movement movement = new Movement(data);
             System.out.println("input: \n" + data);
-            System.out.println("output: \n" + platba);            
-            movementList.add(platba.toDoc());
+            System.out.println("output: \n" + movement);            
+            movementList.add(movement.toDoc());
             break;
           default:
             System.out.println("ERROR: Unknown line case.");
             break;
         }
+        myReader.close();
       }
       MongoClientConnection spojeni = new MongoClientConnection();
       spojeni.AddToDB(movementList, statementList);      
     }
-
+    
   }
 }
 
